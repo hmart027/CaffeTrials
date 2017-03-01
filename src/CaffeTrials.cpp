@@ -251,13 +251,12 @@ int main() {
 		std::cout<<"No video source"<<std::endl;
 		return 0;
 	}
-	for(;;){
-		cv::Mat frame;
-		cap>>frame;
-		if(frame.empty()) break;
-		imshow("Video", frame);
+	while(true){
+		cap>>img;
+		if(img.empty()) break;
+		imshow("Video", img);
 
-		std::vector<Prediction> predictions = Classify(frame);
+		std::vector<Prediction> predictions = Classify(img);
 		std::cout<<std::endl;
 		/* Print the top N predictions. */
 		for (size_t i = 0; i < predictions.size(); ++i) {
