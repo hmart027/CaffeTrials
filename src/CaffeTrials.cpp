@@ -3,7 +3,7 @@
 // Author      : Harold Martin
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : I copied most of this code from somewhere on the internet but cant remember where.
 //============================================================================
 
 #include <iostream>
