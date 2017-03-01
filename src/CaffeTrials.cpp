@@ -246,5 +246,28 @@ int main() {
 				<< p.first << "\"" << std::endl;
 	}
 
+	cv::VideoCapture cap;
+	if(!cap.open(0)){
+		std::cout<<"No video source"<<std::endl;
+		return 0;
+	}
+	for(;;){
+		cv::Mat frame;
+		cap>>frame;
+		if(frame.empty()) break;
+		imshow("Video", frame);
+
+		std::vector<Prediction> predictions = Classify(frame);
+		std::cout<<std::endl;
+		/* Print the top N predictions. */
+		for (size_t i = 0; i < predictions.size(); ++i) {
+			Prediction p = predictions[i];
+			std::cout << std::fixed << std::setprecision(4) << p.second << " - \""
+					<< p.first << "\"" << std::endl;
+		}
+
+		if(cv::waitKey(1)==32) break;
+	}
+
 	return 0;
 }
