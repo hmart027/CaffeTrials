@@ -35,16 +35,12 @@ std::vector<string> labels_;
 
 /* Pair (label, confidence) representing a prediction. */
 typedef std::pair<string, float> Prediction;
-
 std::vector<Prediction> Classify(const cv::Mat& img, int N = 5);
-
 void SetMean(const string& mean_file);
-
 std::vector<float> Predict(const cv::Mat& img);
-
 void WrapInputLayer(std::vector<cv::Mat>* input_channels);
-
 void Preprocess(const cv::Mat& img, std::vector<cv::Mat>* input_channels);
+
 
 static bool PairCompare(const std::pair<float, int>& lhs,
                         const std::pair<float, int>& rhs) {
