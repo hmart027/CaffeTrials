@@ -4,6 +4,7 @@
 // Version     :
 // Copyright   : Your copyright notice
 // Description : I copied most of this code from somewhere on the internet but cant remember where.
+//				 Maybe one of the samples?
 //============================================================================
 
 #include <iostream>
@@ -189,10 +190,15 @@ void Preprocess(const cv::Mat& img,
 int main() {
 	std::cout << "!!!Hello World!!!" << std::endl; // prints !!!Hello World!!!
 
-	string model_file   = "/media/DATA/INS/caffe-master/models/bvlc_reference_caffenet/deploy.prototxt";
-	string trained_file = "/media/DATA/INS/caffe-master/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel";
-	string mean_file    = "/media/DATA/INS/caffe-master/data/ilsvrc12/imagenet_mean.binaryproto";
-	string label_file   = "/media/DATA/INS/caffe-master/data/ilsvrc12/synset_words.txt";
+//	string model_file   = "/media/DATA/INS/caffe-master/models/bvlc_reference_caffenet/deploy.prototxt";
+//	string trained_file = "/media/DATA/INS/caffe-master/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel";
+//	string mean_file    = "/media/DATA/INS/caffe-master/data/ilsvrc12/imagenet_mean.binaryproto";
+//	string label_file   = "/media/DATA/INS/caffe-master/data/ilsvrc12/synset_words.txt";
+
+	string model_file   = "/mnt/Research/Harold/INS/caffe-master/models/bvlc_reference_caffenet/deploy.prototxt";
+	string trained_file = "/mnt/Research/Harold/INS/caffe-master/models/bvlc_reference_caffenet/bvlc_reference_caffenet.caffemodel";
+	string mean_file    = "/mnt/Research/Harold/INS/caffe-master/data/ilsvrc12/imagenet_mean.binaryproto";
+	string label_file   = "/mnt/Research/Harold/INS/caffe-master/data/ilsvrc12/synset_words.txt";
 
 	::google::InitGoogleLogging("CaffeTrials");
 
@@ -228,8 +234,9 @@ int main() {
 
 	std::cout << labels_.size() << " labels loaded" << std::endl;
 
-	string file = "/home/harold/Pictures/Wallpapers/cat.jpg";
+//	string file = "/home/harold/Pictures/Wallpapers/cat.jpg";
 //	string file = "/media/DATA/INS/caffe-master/examples/images/cat.jpg";
+	string file = "/home/harold/Pictures/cat.jpg";
 
 	cv::Mat img = cv::imread(file, CV_LOAD_IMAGE_COLOR);
 	CHECK(!img.empty()) << "Unable to decode image " << file;
